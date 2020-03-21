@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+
+  envoy:
+    image: envoyproxy/envoy-alpine-dev:latest
+    volumes:
+      - ./example_envoy.yaml:/etc/envoy/envoy.yaml
+    networks:
+      - envoymesh
+    expose:
+      - "8080"
+    ports:
+      - "8111:8080"
+
+  service_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["/http_server"]
+    networks:
+      envoymesh:
+        aliases:
+          - service_backend
+    expose:
+      - "22222"
+
+  service_authz:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["/grpc_server"]
+    networks:
+      envoymesh:
+        aliases:
+          - service_authz
+    expose:
+      - "22222"
+
+networks:
+  envoymesh: {}
