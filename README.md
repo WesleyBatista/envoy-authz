@@ -3,6 +3,7 @@
 Basic envoy setup example for running an external Authentication/Authorization backend
 
 > The example on this repo was copied from [salrashid123/envoy_external_authz](https://github.com/salrashid123/envoy_external_authz), which is connected to [the article on medium](https://medium.com/google-cloud/envoy-external-authorization-server-envoy-ext-authz-helloworld-82eedc7f8122)
+> 
 > Cheers @salrashid123 for providing such great and actionable content :beers:
 
 On this repo you find the example in the form of a **`docker-compose.yaml`**, making it even easier *(for those who has familiarity with the tool, of course)* to get started with the concept presented on the [article](https://medium.com/google-cloud/envoy-external-authorization-server-envoy-ext-authz-helloworld-82eedc7f8122).
